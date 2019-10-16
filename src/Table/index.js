@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Item from '../Item';
 import * as style from './index.module.scss';
 import { UseFetch } from '../utils/UseFetch';
 import { start, limitSize } from '../constants';
@@ -18,7 +19,11 @@ export default function Table() {
           </tr>
         </thead>
         <tbody>
-
+          {
+            data.map((item) => {
+              return <Item id={item.id} title={item.title}  isCompleted={item.completed} />
+            })
+          }
         </tbody>
       </table>
     )
